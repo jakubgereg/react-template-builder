@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TemplateBuilder should match a snapshot 1`] = `
+<main
+  className="main"
+>
+  Hello, World!
+</main>
+`;
+
+exports[`TemplateBuilder should match a snapshot with custom components 1`] = `
+<pre
+  className="test-class-name"
+>
+  {
+  "array": [
+    "one",
+    "two",
+    1,
+    2
+  ],
+  "object": {
+    "dynamic": true
+  },
+  "number": 1,
+  "string": "X"
+}
+</pre>
+`;
+
+exports[`TemplateBuilder should match a snapshot with custom nested components 1`] = `
+<div
+  className="main-box"
+>
+  <div
+    className="nested-box"
+  >
+    <pre
+      className="test-class-name"
+    >
+      {
+  "array": [
+    "one",
+    "two",
+    1,
+    2
+  ],
+  "object": {
+    "dynamic": true
+  },
+  "number": 1,
+  "string": "X"
+}
+    </pre>
+  </div>
+  <ul
+    className="list-class-name"
+  >
+    <li>
+      one
+    </li>
+    <li>
+      two
+    </li>
+    <li>
+      three
+    </li>
+  </ul>
+  <a
+    className="link-class-name"
+    href="github.com"
+  />
+</div>
+`;
