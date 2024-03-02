@@ -7,7 +7,7 @@ This repository contains a utility function to render React components dynamical
 Install the package using npm:
 
 ```bash
-npm install @jg/react-template-builder
+npm install @jgereg/react-template-builder
 ```
 
 ## Usage
@@ -15,7 +15,7 @@ npm install @jg/react-template-builder
 Import the createTemplateBuilder function from the package:
 
 ```js
-import { createTemplateBuilder } from '@jg/react-template-builder';
+import { createTemplateBuilder } from '@jgereg/react-template-builder';
 ```
 
 Then, you can create a template builder instance by calling `createTemplateBuilder`, optionally passing custom components as an argument:
