@@ -1,6 +1,6 @@
 {
   "name": "@jg/react-template-builder",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Lightweight utility package designed to dynamically render React components based on provided templates.",
   "repository": "jakubgereg/react-template-builder",
   "main": "dist/index.js",
