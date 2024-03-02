@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { ComponentTemplate } from './types';
-import { isHtmlElement } from './utils';
+import { ComponentTemplate, CustomComponentMapping } from './types';
+import { defineComponent, isHtmlElement } from './utils';
 
 const renderComponent =
-  (customComponents?: Record<string, React.ElementType>) =>
-  ({ type, className, children: childrenFromProps, props }: ComponentTemplate): React.ReactElement => {
+  (customComponents?: CustomComponentMapping) =>
+  ({ type = 'div', className, children: childrenFromProps, props }: ComponentTemplate): React.ReactElement => {
     const children = Array.isArray(childrenFromProps)
       ? childrenFromProps.map((child, idx) =>
           React.createElement(React.Fragment, { key: idx }, renderComponent(customComponents)(child))
@@ -24,6 +24,7 @@ const renderComponent =
     return React.createElement('div', combinedProps, children);
   };
 
-export const createTemplateBuilder = (customComponents?: Record<string, React.ElementType>) => ({
-  renderComponent: renderComponent(customComponents)
+export const createTemplateBuilder = (customComponents?: CustomComponentMapping) => ({
+  renderComponent: renderComponent(customComponents),
+  defineComponent: defineComponent
 });

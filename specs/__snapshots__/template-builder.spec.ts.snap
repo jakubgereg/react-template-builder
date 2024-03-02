@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TemplateBuilder should match a snapshot 1`] = `
+exports[`TemplateBuilder renderComponent should match a snapshot 1`] = `
 <main
   className="main"
 >
@@ -8,7 +8,7 @@ exports[`TemplateBuilder should match a snapshot 1`] = `
 </main>
 `;
 
-exports[`TemplateBuilder should match a snapshot with custom components 1`] = `
+exports[`TemplateBuilder renderComponent should match a snapshot with custom components 1`] = `
 <pre
   className="test-class-name"
 >
@@ -28,7 +28,7 @@ exports[`TemplateBuilder should match a snapshot with custom components 1`] = `
 </pre>
 `;
 
-exports[`TemplateBuilder should match a snapshot with custom nested components 1`] = `
+exports[`TemplateBuilder renderComponent should match a snapshot with custom nested components 1`] = `
 <div
   className="main-box"
 >
@@ -70,5 +70,13 @@ exports[`TemplateBuilder should match a snapshot with custom nested components 1
     className="link-class-name"
     href="github.com"
   />
+</div>
+`;
+
+exports[`TemplateBuilder renderComponent should render div by default 1`] = `
+<div
+  className="div-class"
+>
+  Hello, from div!
 </div>
 `;
