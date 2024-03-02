@@ -14,13 +14,13 @@ describe('TemplateBuilder', () => {
   describe('renderComponent', () => {
     it('should match a snapshot', () => {
       const component = basicBuilder.renderComponent({ type: 'main', className: 'main', children: 'Hello, World!' });
-      let result = ReactTestRendered.create(component).toJSON();
+      const result = ReactTestRendered.create(component).toJSON();
       expect(result).toMatchSnapshot();
     });
 
     it('should render div by default', () => {
       const component = basicBuilder.renderComponent({ className: 'div-class', children: 'Hello, from div!' });
-      let result = ReactTestRendered.create(component).toJSON();
+      const result = ReactTestRendered.create(component).toJSON();
       expect(result).toMatchSnapshot();
     });
 
@@ -30,7 +30,7 @@ describe('TemplateBuilder', () => {
         className: 'test-class-name',
         props: { value: { array: ['one', 'two', 1, 2], object: { dynamic: true }, number: 1, string: 'X' } }
       });
-      let result = ReactTestRendered.create(component).toJSON();
+      const result = ReactTestRendered.create(component).toJSON();
       expect(result).toMatchSnapshot();
     });
 
@@ -63,8 +63,7 @@ describe('TemplateBuilder', () => {
         ]
       });
 
-      let result = ReactTestRendered.create(component).toJSON();
-      console.log(result);
+      const result = ReactTestRendered.create(component).toJSON();
       expect(result).toMatchSnapshot();
     });
   });
