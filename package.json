@@ -2,7 +2,10 @@
   "name": "@jgereg/react-template-builder",
   "version": "0.0.3",
   "description": "Lightweight utility package designed to dynamically render React components based on provided templates.",
-  "repository": "jakubgereg/react-template-builder",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jakubgereg/react-template-builder.git"
+  },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -15,7 +18,7 @@
     "build": "tsc",
     "check": "npm run format:check && npm run typecheck && npm run test",
     "preversion": "npm run check",
-    "postversion": "git push && git push --tags && npm publish",
+    "postversion": "git push && git push --tags && npm publish --access public",
     "prepublishOnly": "npm run build",
     "test": "jest"
   },
@@ -28,9 +31,7 @@
     "dynamic",
     "web"
   ],
-  "author": {
-    "name": "Jakub Gereg"
-  },
+  "author": "Jakub Gereg",
   "license": "ISC",
   "devDependencies": {
     "@types/jest": "29.5.5",
@@ -47,5 +48,9 @@
   },
   "peerDependencies": {
     "react": "18.2.0"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/jakubgereg/react-template-builder/issues"
+  },
+  "homepage": "https://github.com/jakubgereg/react-template-builder#readme"
 }
