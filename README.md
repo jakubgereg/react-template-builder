@@ -34,7 +34,7 @@ const renderedComponent = templateBuilder.renderComponent(template);
 
 ```js
 import React from 'react';
-import { createTemplateBuilder } from 'react-component-renderer';
+import { createTemplateBuilder } from '@jgereg/react-component-renderer';
 
 // Define your custom components
 const CustomButton = ({ onClick, children }) => <button onClick={onClick}>{children}</button>;
