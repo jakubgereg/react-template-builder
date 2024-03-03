@@ -8,14 +8,15 @@ export interface ComponentTemplate extends ComponentTemplateBase {
   props?: { [key: string]: any };
 }
 
-export type ComponentType<T extends any, K extends keyof T> = ComponentTemplateBase & {
+export type ComponentType<Type extends any, Key extends keyof Type> = ComponentTemplateBase & {
   type: K;
-  props?: Omit<T[K], 'className' | 'children'>;
+  props?: Omit<Type[Key], 'className' | 'children'>;
 };
 
-export type HtmlComponent<T extends keyof React.JSX.IntrinsicElements> = ComponentTemplateBase &
-  ComponentType<React.JSX.IntrinsicElements, T>;
+export type HtmlComponent<HtmlTag extends keyof React.JSX.IntrinsicElements> = ComponentTemplateBase &
+  ComponentType<React.JSX.IntrinsicElements, HtmlTag>;
 
-export type ComponentCollection<T> = {
-  [K in keyof T]: React.ComponentType<T[K]>;
+export type ComponentCollection<CollectionType> = {
+  [K in keyof CollectionType]: React.ComponentType<CollectionType[K]>;
 };
+}

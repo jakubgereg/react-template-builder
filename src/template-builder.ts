@@ -3,13 +3,15 @@ import React from 'react';
 import { ComponentTemplate, ComponentCollection, HtmlComponent, ComponentType } from './types';
 import { isHtmlElement } from './utils';
 
-export const defineComponent = <K extends keyof React.JSX.IntrinsicElements = never>(
-  component: HtmlComponent<K>
-): HtmlComponent<K> => component;
+export const defineComponent = <HtmlTag extends keyof React.JSX.IntrinsicElements = never>(
+  component: HtmlComponent<HtmlTag>
+): HtmlComponent<HtmlTag> => component;
 
 export const defineCustom =
-  <T>(mapping?: ComponentCollection<T>) =>
-  <K extends keyof T>(component: ComponentType<T, K>): ComponentType<T, K> =>
+  <CollectionType>(mapping?: ComponentCollection<CollectionType>) =>
+  <Key extends keyof CollectionType>(
+    component: ComponentType<CollectionType, Key>
+  ): ComponentType<CollectionType, Key> =>
     component;
 
 const renderComponent =
@@ -33,7 +35,7 @@ const renderComponent =
     return React.createElement('div', combinedProps, children);
   };
 
-export const createTemplateBuilder = <T>(mapping?: ComponentCollection<T>) => ({
+export const createTemplateBuilder = <CollectionType>(mapping?: ComponentCollection<CollectionType>) => ({
   renderComponent: renderComponent(mapping),
   defineComponent,
   defineCustom: defineCustom(mapping)
