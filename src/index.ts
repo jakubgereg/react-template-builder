@@ -1,2 +1,4 @@
-export * from './template-builder';
+import { createTemplateBuilder } from './template-builder';
 export * from './types';
+
+export default createTemplateBuilder;

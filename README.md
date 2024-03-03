@@ -15,32 +15,32 @@ npm install @jgereg/react-template-builder
 Import the createTemplateBuilder function from the package:
 
 ```js
-import { createTemplateBuilder } from '@jgereg/react-template-builder';
+import templateBuilder from '@jgereg/react-template-builder';
 ```
 
-Then, you can create a template builder instance by calling `createTemplateBuilder`, optionally passing custom components as an argument:
+Then, you can create a template builder instance by calling `templateBuilder`, optionally passing custom components as an argument:
 
 ```js
-const templateBuilder = createTemplateBuilder(customComponents);
+const template = templateBuilder(customComponentMapping);
 ```
 
 You can now use the `renderComponent` method of the `templateBuilder` to render components based on a template:
 
 ```js
-const renderedComponent = templateBuilder.renderComponent(template);
+template.renderComponent(component);
 ```
 
 ## Example
 
 ```js
 import React from 'react';
-import { createTemplateBuilder } from '@jgereg/react-component-renderer';
+import templateBuilder from '@jgereg/react-template-builder';
 
 // Define your custom components
 const CustomButton = ({ onClick, children }) => <button onClick={onClick}>{children}</button>;
 
 // Create a template builder with custom components
-const templateBuilder = createTemplateBuilder({ Button: CustomButton });
+const { renderComponent } = templateBuilder({ Button: CustomButton });
 
 // Define a template
 const template = {
@@ -64,12 +64,12 @@ const template = {
 };
 
 // Render the component based on the template
-const renderedComponent = templateBuilder.renderComponent(template);
+const renderedComponent = renderComponent(template);
 ```
 
 ## API
 
-### `createTemplateBuilder(customComponents?)`
+### `templateBuilder(customComponents?)`
 
 Creates a template builder instance.
 

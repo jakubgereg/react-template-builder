@@ -8,7 +8,11 @@ export const TestComponent = ({ value, className }: TestComponentProps) => (
   <pre className={className}>{JSON.stringify(value, null, 2)}</pre>
 );
 
-export const List = ({ items, className }: { items: string[]; className?: string }) => (
+export interface ListProps {
+  items: string[];
+  className?: string;
+}
+export const List = ({ items, className }: ListProps) => (
   <ul className={className}>
     {items.map((item, index) => (
       <li key={index}>{item}</li>

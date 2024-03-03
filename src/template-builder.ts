@@ -1,10 +1,19 @@
 import React from 'react';
 
-import { ComponentTemplate, CustomComponentMapping } from './types';
-import { defineComponent, isHtmlElement } from './utils';
+import { ComponentTemplate, ComponentCollection, HtmlComponent, ComponentType } from './types';
+import { isHtmlElement } from './utils';
+
+export const defineComponent = <K extends keyof React.JSX.IntrinsicElements = never>(
+  component: HtmlComponent<K>
+): HtmlComponent<K> => component;
+
+export const defineCustom =
+  <T>(mapping?: ComponentCollection<T>) =>
+  <K extends keyof T>(component: ComponentType<T, K>): ComponentType<T, K> =>
+    component;
 
 const renderComponent =
-  (mapping?: CustomComponentMapping) =>
+  (mapping?: ComponentCollection<any>) =>
   ({ type = 'div', className, children: childrenFromProps, props }: ComponentTemplate): React.ReactElement => {
     const children = Array.isArray(childrenFromProps)
       ? childrenFromProps.map((child, idx) =>
@@ -24,7 +33,8 @@ const renderComponent =
     return React.createElement('div', combinedProps, children);
   };
 
-export const createTemplateBuilder = (mapping?: CustomComponentMapping) => ({
+export const createTemplateBuilder = <T>(mapping?: ComponentCollection<T>) => ({
   renderComponent: renderComponent(mapping),
-  defineComponent
+  defineComponent,
+  defineCustom: defineCustom(mapping)
 });

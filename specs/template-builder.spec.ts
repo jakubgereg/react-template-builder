@@ -1,7 +1,7 @@
 import ReactTestRendered from 'react-test-renderer';
 import { createTemplateBuilder } from '../src/template-builder';
-import { TestComponent, Box, List } from './TestComponent';
 import { HtmlComponent } from '../src/types';
+import { Box, List, TestComponent } from './TestComponent';
 
 const basicBuilder = createTemplateBuilder();
 const customBuilder = createTemplateBuilder({
@@ -86,6 +86,27 @@ describe('TemplateBuilder', () => {
         }
       });
       expect(anchor).toEqual(expect.objectContaining<HtmlComponent<'a'>>({ type: 'a' }));
+    });
+  });
+  describe('defineCustom', () => {
+    it('should be a custom TestComponent', () => {
+      const testComponent = customBuilder.defineCustom({
+        type: 'TestComponent',
+        props: {
+          value: { number: 1 }
+        }
+      });
+
+      expect(testComponent).toEqual(expect.objectContaining({ type: 'TestComponent' }));
+    });
+    it('should be a custom List', () => {
+      const testComponent = customBuilder.defineCustom({
+        type: 'List',
+        props: {
+          items: ['1', '2', '3']
+        }
+      });
+      expect(testComponent).toEqual(expect.objectContaining({ type: 'List' }));
     });
   });
 });
