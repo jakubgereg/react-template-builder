@@ -46,12 +46,10 @@ const { renderComponent } = templateBuilder({ Button: CustomButton });
 const template = {
   type: 'div',
   className: 'container',
-  props: {},
   children: [
     {
       type: 'p',
       className: 'text',
-      props: {},
       children: 'Hello World!'
     },
     {

@@ -10,7 +10,7 @@ export interface ComponentTemplate extends ComponentTemplateBase {
 
 export type ComponentType<T extends any, K extends keyof T> = ComponentTemplateBase & {
   type: K;
-  props?: T[K];
+  props?: Omit<T[K], 'className' | 'children'>;
 };
 
 export type HtmlComponent<T extends keyof React.JSX.IntrinsicElements> = ComponentTemplateBase &
