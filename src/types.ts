@@ -5,7 +5,7 @@ export interface ComponentTemplateBase {
 }
 
 export interface ComponentTemplate extends ComponentTemplateBase {
-  props?: Record<string, any>;
+  props?: { [key: string]: any };
 }
 
 export type ComponentType<T extends any, K extends keyof T> = ComponentTemplateBase & {
