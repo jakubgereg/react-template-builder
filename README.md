@@ -12,7 +12,7 @@ npm install @jgereg/react-template-builder
 
 ## Usage
 
-Import the createTemplateBuilder function from the package:
+Import the templateBuilder function from the package:
 
 ```js
 import templateBuilder from '@jgereg/react-template-builder';
